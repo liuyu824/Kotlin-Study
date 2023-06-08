@@ -1,5 +1,7 @@
 fun main(){
 
+
+
     val age = 50
     ageCondition(age);
 

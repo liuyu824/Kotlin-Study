@@ -28,7 +28,11 @@ Kotlin可以脱离虚拟机层，直接编译成可以在Windows、Linux和macOS
 ### 语言声明变量与内置数据类型
 
 ```kotlin
+// 正常声明变量
 var maximumAge:Int = 5
+
+// 类型推断，省略 类型声明
+var miximumAge = 5
 ```
 
 | 类型    | 描述             | 示例                                              |
@@ -44,19 +48,27 @@ var maximumAge:Int = 5
 
 在kotlin中存在**类型推断**：
 
-变量声明时赋值了stirng或int，就不必再指定变量类型，允许使用时省略对变量的声明定义。
-
-kotlin是编译型的语言，自带的编译器非常强大。
+变量声明时赋值了string或int，允许省略对变量类型的声明定义。
 
 
 
 ### 编译时常量
 
 - 只读变量 并非绝对只读
+
+  ![截屏2023-06-08 11.26.10](/Users/liuyu/Library/Application Support/typora-user-images/截屏2023-06-08 11.26.10.png)
+
 - <a style="color:red">**编译时常量只能在函数之外定义**</a>，因为编译时常量必须在编译时赋值，而函数都是在运行时才调用，函数内的变量也是在运行时赋值，编译时常量要在这些变量赋值前就已存在。
+
 - 编译时常量只能是常见的基本数据类型：String, Int, Double, Float, Long, Short, Byte, Char, Boolean。
 
 <img src="/Users/liuyu/Library/Application Support/typora-user-images/截屏2023-06-07 10.56.37.png" align="left" style="zoom:75%;" />
+
+**二次理解：**
+
+<img src="/Users/liuyu/Library/Application Support/typora-user-images/截屏2023-06-08 10.31.48.png" align=left/>
+
+事先定义的编译时常量，方法调用时，字节码文件里直接调用编译时常量的赋值。
 
 
 
@@ -71,7 +83,7 @@ kotlin是编译型的语言，自带的编译器非常强大。
 
 ### 引用类型和基本数据类型
 
-- java有两种数据类型：引用类型与基本数据类型
+- java 有两种数据类型：引用类型与基本数据类型
 - Kotlin只提供引用类型这一种数据类型，出于更高性能的需要，Kotlin编译器会在java字节码文件中<a style="color:red">改用基本数据类型</a>
 
 
@@ -123,9 +135,19 @@ val level :Any = when (school){
 
 
 
-### string模板
+### String模板
 
-- 模版支持在字符串的引号内放入变量值；
+- 支持在字符串引号内放入变量值；
+
+```kotlin
+var stuName = "刘宇"
+println("Hello, $stuName")
+// 如果变量在中间，并且不希望后方有空格
+println("Hello, ${stuName}have a good day!")
+```
+
+
+
 - 还支持字符串里计算表达式的值并插入结果，添加在${}中的任何表达式，都会作为字符串的一部分求值。
 
 ```kotlin
@@ -209,8 +231,9 @@ fix(stuAge = 100, stuName = "刘宇")
 
 ### 匿名函数
 
-- 定义时不取名字的函数，我们称之为匿名函数，匿名函数通常整体传递给其他函数，或者从其他函数返回。
-- 匿名函数对于Kotlin来说很重要，有了它，我们能够根据需要指定特殊规则，轻松定制标准库里的内置函数。
+- 声明函数时，没有 函数名 的函数是 匿名函数；
+- 匿名函数 可以作为 函数参数，也可以作为 函数返回值；
+- 匿名函数 可以 定制修改已有的函数，如：标准库中的函数；
 
 ```kotlin
 fun main() {
@@ -244,18 +267,81 @@ fun main() {
 
 
 
-it关键字
 
-匿名函数的类型推断
 
-什么是lambda
+### it关键字
 
-定义参数是函数的函数
+定义只有一个参数的匿名函数时，可以使用it关键字来表示参数名。当你需要传入两个值参，it关键字就不能用了。
 
-简略写法
+```kotlin
+fun main() {
 
-函数内联
+    val blessingFunction:(String)->String = {
+        val holiday = "New Year!"
+        "$it, happy $holiday"
+    }
+    println(blessingFunction("Jacky"))
+}
+```
 
-函数引用
 
-函数类型作为返回类型
+
+### 匿名函数的类型推断
+
+```kotlin
+    // 匿名函数推断
+    val blessingFunction02:(String,Int) -> String={
+        stuName,stuPNum->
+        "$stuName's telephone number is $stuPNum"
+    }
+    println(blessingFunction02("刘宇", 13))
+
+    // 匿名函数推断
+    val blessingFunction03 ={
+            stuName:String,stuAge:Int->
+        "$stuName's age is $stuAge"
+    }
+    println(blessingFunction03("刘宇", 13))
+
+```
+
+
+
+### 什么是lambda
+
+匿名函数称为lambda，定义称为lambda表达式，返回数据称为lambda结果。
+
+```kotlin
+fun main() {
+    val getDiscountWords = {goodsName:String,hour:Int->
+        val currentYear = 2027
+        "For now is ${currentYear}, $goodsName has $hour hours discount time."
+    }
+    var string = showOnBoard("卫生纸",getDiscountWords)
+    println(string)
+}
+
+// 具名函数
+fun showOnBoard(goodsName:String,getDiscountWords:(String,Int)->String){
+    val hour = (1..24).shuffled().last()
+    println(getDiscountWords(goodsName,hour))
+}
+```
+
+
+
+### 定义参数是函数的函数
+
+- 如果<a style="color:red;font-weight:bold">一个函数的lambda参数排在最后，或者是唯一的参数</a>，那么括住lambda值参的一对圆括号就可以省略。
+
+
+
+
+
+### 简略写法
+
+### 函数内联
+
+### 函数引用
+
+### 函数类型作为返回类型
