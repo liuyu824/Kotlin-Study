@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a0ebfe3-68a4-4fac-a0f9-4ee983432775" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/geograpyExample/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geograpyExample/src/Country.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geograpyExample/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin01/src/ConditionTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin01/src/varAndVal.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc02.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin02/src/ItKeyword.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/geograpyExample/src/finalCountryFilter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc03.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kotlin02/src/PassingFunReference.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kotlin02/src/lambda.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kotlin03/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kotlin03/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kotlin03/src/nullSafe.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Kotlin.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Kotlin.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin01/src/Condition.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin01/src/Condition.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geograpyExample/src/Country.kt" beforeDir="false" afterPath="$PROJECT_DIR$/geograpyExample/src/Country.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kotlin02/src/Anonymous.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin02/src/Anonymous.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc02.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc02.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,14 +28,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.21/kotlin-stdlib-common-1.8.21-sources.jar!/generated/_Collections.kt" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="2QrHAMNNpEdwLRztJQruNPq6YmS" />
   <component name="ProjectLevelVcsManager">
@@ -43,22 +48,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "11",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -71,7 +76,7 @@
       <workItem from="1686125957288" duration="76000" />
       <workItem from="1686126038713" duration="4971000" />
       <workItem from="1686185731692" duration="9283000" />
-      <workItem from="1686200664856" duration="5705000" />
+      <workItem from="1686200664856" duration="28298000" />
     </task>
     <servers />
   </component>
@@ -80,6 +85,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.21/kotlin-stdlib-common-1.8.21-sources.jar!/generated/_Collections.kt</url>
+          <line>1773</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -235,15 +235,7 @@ fix(stuAge = 100, stuName = "刘宇")
 - 匿名函数 可以作为 函数参数，也可以作为 函数返回值；
 - 匿名函数 可以 定制修改已有的函数，如：标准库中的函数；
 
-```kotlin
-fun main() {
-    val total = "Mississippi".count()
-    val totals = "Mississippi".count { letter -> letter == 's' }
-
-    println(total)
-    println(totals)
-}
-```
+![截屏2023-06-09 09.28.32](/Users/liuyu/Library/Application Support/typora-user-images/截屏2023-06-09 09.28.32.png)
 
 
 
@@ -307,7 +299,7 @@ fun main() {
 
 
 
-### 什么是lambda
+### Lambda
 
 匿名函数称为lambda，定义称为lambda表达式，返回数据称为lambda结果。
 
@@ -315,7 +307,7 @@ fun main() {
 fun main() {
     val getDiscountWords = {goodsName:String,hour:Int->
         val currentYear = 2027
-        "For now is ${currentYear}, $goodsName has $hour hours discount time."
+        "For now is ${currentYear}, $goodsName has $hour hours."
     }
     var string = showOnBoard("卫生纸",getDiscountWords)
     println(string)
@@ -328,6 +320,41 @@ fun showOnBoard(goodsName:String,getDiscountWords:(String,Int)->String){
 }
 ```
 
+#### Lambda语法
+
+- 一个lambda表达式必须通过{}来包裹；
+- 如果lambda声明了参数部分的类型，且返回值类型支持类型推导
+- 那么lambda变量就可以省略函数类型声明
+
+```kotlin
+// 原始状态，全部声明状态
+val sumOrigin:(Int,Int)->Int = {x:Int,y:Int->x+y}
+
+// 简化后，前后只有一个声明就可以
+
+// 如果lambda声明了参数部分的类型，变量就可以省略函数类型声明
+val sumStart:(Int,Int)->Int = {x,y->x+y}
+
+// 如果Lambda变量声明了函数类型，参数部分的类型声明就可以省略
+val sumEnd = {x:Int,y:Int->x+y}
+```
+
+- 如果Lambda表达式返回的不是Unit，那么默认最后一行表达式的值就是返回值类型。
+
+```kotlin
+val add = {x:Int->
+	val y = x + 1
+	y
+}
+add(1)
+```
+
+
+
+#### 单个参数的隐式名称
+
+
+
 
 
 ### 定义参数是函数的函数
@@ -336,12 +363,108 @@ fun showOnBoard(goodsName:String,getDiscountWords:(String,Int)->String){
 
 
 
-
-
 ### 简略写法
+
+如果<a style="color:red;font-weight:bold">一个函数的lambda参数排在最后，或者是唯一的参数</a>，那么括住lambda值参的一对圆括号就可以省略
+
+```kotlin
+// 再简略写法
+val count = "Mississippi".count{
+	it == 's'
+}
+```
+
+
 
 ### 函数内联
 
-### 函数引用
+-  lambda可以更灵活的编写应用；
+- 在JVM上，定义的lambda会以对象实例的形式存在，JVM会为所有与lambda相关的变量分配内存，产生了内存开销，导致严重的性能问题。
+- Kotlin存在优化机制，内联，JVM不需要使用lambda对象实例了，避免了变量内存分配。哪里需要lambda，编译器就会将函数体复制粘贴到哪里。
+- 使用lambda递归函数无法内联，因为会导致复制粘贴无限循环，编译发出警告
 
-### 函数类型作为返回类型
+
+
+### 2.3.7 函数，Lambda 和 闭包
+
+- fun没有等号只有花括号，是最常见的代码块函数体；
+  - 如果返回值，非Unit，必须带return
+- fun带等号，是单表达式函数体
+- 无论val和fun，如果语法是等号+花括号，构建的就是一个lambda表达式。
+
+
+
+### 闭包
+
+- 在kotlin中，匿名函数能修改并引用定义在自己的作用域之外的变量，匿名函数引用着定义自身的函数里的变量，kotlin中的lambda就是闭包
+- 能接受函数或者返回函数又叫做高级函数，高级函数广泛应用于函数式编程当中。
+
+
+
+### 空指针异常
+
+- 在java中经常遇到的空指针异常NullPointerException
+- kotlin做了改良，kotlin把运行时可能会出现的null问题，以编译时错误的方式，<a style="color:red;font-weight:bold">提前在编译期就强迫重视</a>，而不是等到运行时报错，提高了程序的健壮性。
+- 在kotlin中，<a style="color:red;font-weight:bold">除非另有规定，变量不可为null值</a>，这样一来，运行时崩溃从根源上得到解决。
+
+```kotlin
+var whether = "whetherWhether"
+
+// 会报错：null值无法对一个非空类型变量赋值
+whether = null
+
+// 如何能够转呢
+var changeNull: String? = "thisValueCanBeNull"
+changeNull = null;
+```
+
+
+
+### Null安全
+
+kotlin区分可空类型和非可空类型，所以，你要一个可空类型变量运行，而它有可能不存在，对于这种潜在危险，编译器时刻警惕着。为了应对这种风险，Kotlin不允许在可空类型值上调用函数，除非主动接受安全管理
+
+
+
+#### 选项一：安全调用操作符
+
+- 这次kotlin不报错了，编译器看到有安全调用操作符，所以它知道如何检查null值。如果遇到null值，它就<a style="color:red;font-weight:bold">跳过函数调用</a>，而不是返回null。
+
+
+
+#### 选项二：非空断言操作符
+
+- !!。又称感叹号操作符，当变量值为null时，会抛出KotlinNullPointerException。
+
+
+
+### 空合并操作符
+
+- ?: 操作符的意思是，如果左边的求值结果为null，就使用右边的结果值。
+
+```kotlin
+val strWithSafe:String = str ?: "butterfly"
+```
+
+- 空合并操作符也可以和let函数一起使用来替代 if/else 语句。
+
+```kotlin
+fun main{
+  var str:String? = readLine()
+  str = str?.let {it.capitalize()} ?: "butterfly"
+  println(str)
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

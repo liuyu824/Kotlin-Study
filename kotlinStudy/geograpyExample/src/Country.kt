@@ -12,7 +12,7 @@ class CountryApp01 {
                 res.add(c)
             }
         }
-        return res;
+        return res
     }
 }
 
@@ -54,17 +54,27 @@ class CountryTest{
 // 调用此方法可以判断一个国家是否为欧洲大国
 // 如何将此方法 引用作为参数传递给 filterCountries
 // 增加了一个函数类型的参数
-fun filterCountries(
-    countries: List<Country>,
-    test:(Country)->Boolean):List<Country>{
-    val res = mutableListOf<Country>()
-    for (c in countries){
-        if (test(c)){
-            res.add(c)
+class CountryApp{
+    fun filterCountries(
+        countries: List<Country>,
+        test:(Country)->Boolean):List<Country>{
+        val res = mutableListOf<Country>()
+        for (c in countries){
+            if (test(c)){
+                res.add(c)
+            }
         }
+        return res
     }
-    return res
 }
 
-// 如何把清单中 isBigEUCountry 方法
+fun main() {
+    // 如何把清单中 isBigEUCountry 方法
 // 传递给 filterCountries
+    val countryApp = CountryApp()
+    val countryTest = CountryTest()
+    val country = Country("China","Asia",10000000)
+    val countries = mutableListOf(country)
+    println(countryApp.filterCountries(countries,countryTest::isBigEUCountry))
+}
+
