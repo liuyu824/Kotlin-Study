@@ -19,7 +19,6 @@ fun main() {
     // 定义了 count(predicate:(Char)->Boolean)扩展函数;
     // 接受一个 (Char)->Boolean 类型的函数;
     // 用于返回匹配给定 匿名函数 的字符数
-
     println(total)
     println(totalTest)
     println(totalS)

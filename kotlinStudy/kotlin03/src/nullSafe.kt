@@ -2,8 +2,10 @@ import java.util.*
 
 fun main() {
 
-    var str = readlnOrNull()
-    println(str!!.capitalize())
-    str = str.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-    println(str)
+    val str:String? = readLine()
+    if (str == null){
+        println("thisVariableIsNull")
+    } else {
+        println("thisVariableIsNotNull")
+    }
 }

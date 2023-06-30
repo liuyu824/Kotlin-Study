@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a0ebfe3-68a4-4fac-a0f9-4ee983432775" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/geograpyExample/src/finalCountryFilter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc03.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin02/src/PassingFunReference.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin02/src/lambda.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin03/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin03/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kotlin03/src/nullSafe.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kotlin.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Kotlin.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geograpyExample/src/Country.kt" beforeDir="false" afterPath="$PROJECT_DIR$/geograpyExample/src/Country.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kotlin02/src/Anonymous.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin02/src/Anonymous.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc02.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin02/src/AnonymousFunc02.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kotlin03/src/nullSafe.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kotlin03/src/nullSafe.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +65,7 @@
       <workItem from="1686125957288" duration="76000" />
       <workItem from="1686126038713" duration="4971000" />
       <workItem from="1686185731692" duration="9283000" />
-      <workItem from="1686200664856" duration="28298000" />
+      <workItem from="1686200664856" duration="31240000" />
     </task>
     <servers />
   </component>
@@ -85,17 +74,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.8.21/kotlin-stdlib-common-1.8.21-sources.jar!/generated/_Collections.kt</url>
-          <line>1773</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
